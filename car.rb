@@ -1,3 +1,5 @@
+# Car is a class for creating cars. A new Car object does not require any arguments.
+
 class Car
 	def initialize
 		@fuel = 10
@@ -9,6 +11,7 @@ class Car
 		"I'm a car! I've driven #{@distance} miles and have #{@fuel} gallons of gas left."		
 	end
 
+# drive allows the car to be driven as long as it has gas.
 	def drive(miles_driven)
 		testfuel = @fuel - (miles_driven/20.0)
 		if testfuel > 0
@@ -23,6 +26,7 @@ class Car
 		end
 	end
 
+# fuel_up refills the car's gas tank.
 	def fuel_up
 		fuel_needed = 10 - @fuel
 		cost = fuel_needed * 3.5

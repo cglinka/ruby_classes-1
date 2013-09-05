@@ -1,3 +1,5 @@
+# BankAccount requires 4 arguments to create a new account.
+
 class BankAccount
 	def initialize(firstname, lastname, balance, creditdebt)
 		@firstname = firstname
@@ -10,6 +12,7 @@ class BankAccount
 		puts "Statement for #{@firstname} #{@lastname}: Your bank balance is #{@balance.round(2)} dollars. Your credit card bill is #{@creditdebt.round(2)} dollars."
 	end
 
+# Increases the bank @balance. Prevents a negative amount from being deposited.
 	def deposit(amount)
 		if amount > 0
 			@balance += amount
@@ -19,6 +22,7 @@ class BankAccount
 		end
 	end
 
+# Reduces the bank @balance by the withdrawn amount. Charges overdraft fee if account is overdrawn.
 	def withdraw(amount)
 		@balance = @balance - amount
 		puts "You withdrew #{amount.round(2)}, which brings your balance to #{@balance.round(2)}."
@@ -28,11 +32,13 @@ class BankAccount
 		end
 	end
 
+# Increases credit card balance by the purchase amount.
 	def credit_purchase(amount)
 		@creditdebt = @creditdebt + amount
 		puts "You made a purchse of #{amount.round(2)} on your credit card. This brings your credit card bill to #{@creditdebt.round(2)}."
 	end
 
+# Pays the credit card amount with the same amount from the bank balance. Charges an overdraft fee if the bank account is overdrawn.
 	def pay_credit_card(amount)
 		@creditdebt = @creditdebt - amount
 		@balance = @balance - amount
@@ -43,6 +49,7 @@ class BankAccount
 		end
 	end
 
+# Charges monthly interest to credit card balance and adds monthly interest to bank account.
 	def add_monthly_interest
 		if @balance > 0
 			@balance *= 1.0003
