@@ -10,11 +10,10 @@ class Car
 	end
 
 	def drive(miles_driven)
-		testdistance = @distance + miles_driven
 		testfuel = @fuel - (miles_driven/20.0)
 		if testfuel > 0
 			@distance = @distance + miles_driven
-			@fuel = @fuel - (miles_driven/20.0)
+			@fuel = testfuel
 			puts "You drove #{miles_driven} and have #{@fuel} gallons left."
 		else
 			drivable_distance = @fuel * 20.0
